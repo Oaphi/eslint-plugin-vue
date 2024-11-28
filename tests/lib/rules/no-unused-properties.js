@@ -2528,7 +2528,7 @@ tester.run('no-unused-properties', rule, {
     {
       code: `
       <script setup lang="ts">
-      import { processProps } from './utils'
+      import { processProps } from './issue-2495'
       const props = defineProps<{ foo: string }>()
       processProps(props)
       </script>`,
