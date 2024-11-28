@@ -2522,6 +2522,17 @@ tester.run('no-unused-properties', rule, {
       {{ props.foo }}{{ bar }}
       </template>`,
       ...getTypeScriptFixtureTestOptions()
+    },
+
+    // https://github.com/vuejs/eslint-plugin-vue/issues/2495
+    {
+      code: `
+      <script setup lang="ts">
+      import { processProps } from './utils'
+      const props = defineProps<{ foo: string }>()
+      processProps(props)
+      </script>`,
+      ...getTypeScriptFixtureTestOptions()
     }
   ],
   invalid: [
